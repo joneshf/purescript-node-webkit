@@ -1,0 +1,10 @@
+{
+  "name": "purescript-node-webkit",
+  "version": "0.0.0",
+  "description": "PureScript bindings to Node-Webkit.",
+  "license": "MIT",
+  "dependencies": {
+    "purescript-node-events": "~0.0.1",
+    "purescript-maybe": "~0.1.3"
+  }
+}
