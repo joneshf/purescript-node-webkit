@@ -1,6 +1,6 @@
 {
   "name": "purescript-node-webkit",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "PureScript bindings to Node-Webkit.",
   "license": "MIT",
   "dependencies": {
