@@ -5,6 +5,9 @@
   "license": "MIT",
   "dependencies": {
     "purescript-maybe": "~0.2.0",
-    "purescript-node-events": "~0.0.3"
+    "purescript-node-events": "~0.0.3",
+    "purescript-arrays": "~0.2.0",
+    "purescript-strings": "~0.2.1",
+    "purescript-monoid": "~0.1.2"
   }
 }

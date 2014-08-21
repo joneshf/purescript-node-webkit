@@ -1,4 +1,4 @@
-module Node.Webkit where
+module Node.WebKit.Window where
 
   import Control.Monad.Eff (Eff())
 
@@ -6,63 +6,16 @@ module Node.Webkit where
   import Data.Maybe (Maybe())
 
   import Node.Events (on, Event(..), EventEff(), EventEmitter)
+  import Node.WebKit.Types
+    ( IFrame()
+    , ManifestWindow()
+    , NW()
+    , NWWindow()
+    , WindowPolicy()
+    , WindowPolicyEff()
+    )
 
   instance eventEmitterNWWindow :: EventEmitter NWWindow
-
-  type ManifestWindow =
-    { title           :: String
-    , width           :: Number
-    , height          :: Number
-    , toolbar         :: Boolean
-    , icon            :: String
-    , position        :: String
-    , min_width       :: Number
-    , min_height      :: Number
-    , max_width       :: Number
-    , max_height      :: Number
-    , as_desktop      :: Boolean
-    , resizable       :: Boolean
-    , "always-on-top" :: Boolean
-    , fullscreen      :: Boolean
-    , show_in_taskbar :: Boolean
-    , frame           :: Boolean
-    , show            :: Boolean
-    , kiosk           :: Boolean
-    }
-
-  defaultManifestWindow :: ManifestWindow
-  defaultManifestWindow =
-    { title: ""
-    , width: 800
-    , height: 600
-    , toolbar: true
-    , icon: ""
-    , position: "center"
-    , min_width: 800
-    , min_height: 600
-    , max_width: 800
-    , max_height: 600
-    , as_desktop: false
-    , resizable: true
-    , "always-on-top": false
-    , fullscreen: false
-    , show_in_taskbar: true
-    , frame: true
-    , show: true
-    , kiosk: false
-    }
-
-  foreign import data IFrame :: *
-  foreign import data NWShell :: *
-  foreign import data NWWindow :: *
-  foreign import data NW :: !
-  foreign import data WindowPolicy :: *
-  foreign import data WindowPolicyEff :: !
-
-  foreign import nwShell
-    "function nwShell() {\
-    \  return require('nw.gui').Shell;\
-    \}" :: forall eff. Eff (nw :: NW | eff) NWShell
 
   foreign import nwWindow
     "function nwWindow() {\
@@ -86,26 +39,6 @@ module Node.Webkit where
     \    }\
     \  }\
     \}" :: forall eff. String -> ManifestWindow -> NWWindow -> Eff (nw :: NW | eff) NWWindow
-
-  foreign import shellOpen
-    "function shellOpen(method) {\
-    \  return function(url) {\
-    \    return function(shell) {\
-    \      return function() {\
-    \        return shell[method](url);\
-    \      }\
-    \    }\
-    \  }\
-    \}" :: forall eff. String -> String -> NWShell -> Eff (nw :: NW | eff) NWShell
-
-  openExternal :: forall eff. String -> NWShell -> Eff (nw :: NW | eff) NWShell
-  openExternal = shellOpen "openExternal"
-
-  openItem :: forall eff. String -> NWShell -> Eff (nw :: NW | eff) NWShell
-  openItem = shellOpen "openItem"
-
-  showItemInFolder :: forall eff. String -> NWShell -> Eff (nw :: NW | eff) NWShell
-  showItemInFolder = shellOpen "showItemInFolder"
 
   foreign import showDevTools
     "function showDevTools(win) {\
