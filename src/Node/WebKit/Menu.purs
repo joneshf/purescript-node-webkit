@@ -1,6 +1,7 @@
 module Node.WebKit.Menu
   ( append
   , createMacBuiltin
+  , defaultMacOptions
   , insert
   , items
   , nwMenu
