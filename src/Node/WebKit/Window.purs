@@ -48,11 +48,13 @@ module Node.WebKit.Window where
     \}" :: forall eff. NWWindow -> Eff (nw :: NW | eff) NWWindow
 
   foreign import closeWindow
-    "function closeWindow(win) {\
-    \  return function() {\
-    \    return win.close(true);\
+    "function closeWindow(close) {\
+    \  return function(win) {\
+    \    return function() {\
+    \      return win.close(close);\
+    \    }\
     \  }\
-    \}" :: forall eff. NWWindow -> Eff (nw :: NW | eff) NWWindow
+    \}" :: forall eff. Boolean -> NWWindow -> Eff (nw :: NW | eff) NWWindow
 
   foreign import windowPolicy
     "function windowPolicy(method) {\
