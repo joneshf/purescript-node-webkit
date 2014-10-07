@@ -4,12 +4,13 @@ module Node.WebKit.MenuItem
   , onClick
   ) where
 
+  import Control.Events (Event(..), EventEff(), EventEmitter)
   import Control.Monad.Eff (Eff())
 
   import Data.Function (Fn0())
   import Data.Maybe (fromMaybe, Maybe(..))
 
-  import Node.Events (on, Event(..), EventEff(), EventEmitter)
+  import Node.Events (on)
 
   import Node.WebKit.Types
     ( NW()

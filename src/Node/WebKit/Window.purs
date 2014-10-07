@@ -1,11 +1,12 @@
 module Node.WebKit.Window where
 
+  import Control.Events (Event(..), EventEff(), EventEmitter)
   import Control.Monad.Eff (Eff())
 
   import Data.Function (Fn0(), Fn1(), Fn2(), Fn3())
   import Data.Maybe (Maybe())
 
-  import Node.Events (on, Event(..), EventEff(), EventEmitter)
+  import Node.Events (on)
   import Node.WebKit.Types
     ( IFrame()
     , ManifestWindow()
