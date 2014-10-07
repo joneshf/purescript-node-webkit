@@ -31,6 +31,7 @@ module Node.WebKit.MenuItem
     , key: ""
     , label: ""
     , modifiers: nwMenuItemModNone
+    , selector: ""
     , submenu: Nothing
     , tooltip: ""
     , "type": nwMenuItemNormal

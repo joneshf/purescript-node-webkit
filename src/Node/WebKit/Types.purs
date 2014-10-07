@@ -72,6 +72,7 @@ module Node.WebKit.Types
     , key       :: String
     , label     :: String
     , modifiers :: NWMenuItemMod
+    , selector  :: String
     , submenu   :: Maybe NWMenu
     , tooltip   :: String
     , "type"    :: NWMenuItemTy

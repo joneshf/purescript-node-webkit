@@ -76,7 +76,7 @@
 
     newtype NWMenuItemMod
 
-    type NWMenuItemOptions eff a = { "type" :: NWMenuItemTy, tooltip :: String, submenu :: Maybe NWMenu, modifiers :: NWMenuItemMod, label :: String, key :: String, icon :: String, enabled :: Boolean, click :: Eff eff a, checked :: Boolean }
+    type NWMenuItemOptions eff a = { "type" :: NWMenuItemTy, tooltip :: String, submenu :: Maybe NWMenu, selector :: String, modifiers :: NWMenuItemMod, label :: String, key :: String, icon :: String, enabled :: Boolean, click :: Eff eff a, checked :: Boolean }
 
     newtype NWMenuItemTy
 
