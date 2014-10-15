@@ -1,14 +1,14 @@
 {
   "name": "purescript-node-webkit",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "PureScript bindings to Node-Webkit.",
   "license": "MIT",
   "dependencies": {
-    "purescript-maybe":       "~0.2.1",
-    "purescript-arrays":      "~0.2.1",
-    "purescript-strings":     "~0.3.1",
-    "purescript-monoid":      "~0.1.4",
+    "purescript-maybe": "~0.2.1",
+    "purescript-arrays": "~0.2.1",
+    "purescript-strings": "~0.3.1",
+    "purescript-monoid": "~0.1.4",
     "purescript-node-events": "~0.2.0",
-    "purescript-events":      "joneshf/purescript-events#~0.1.2"
+    "purescript-events": "joneshf/purescript-events#~0.1.2"
   }
 }
